@@ -1,0 +1,22 @@
+{
+  "name": "jungwooserver",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon dist/app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "net": "^1.0.2",
+    "ts-vector-math": "^1.6.0",
+    "tsc": "^2.0.3",
+    "uniqid": "^5.4.0"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.6"
+  }
+}
