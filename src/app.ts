@@ -12,6 +12,7 @@ declare module "net" {
 
 const server = net.createServer((socket : net.Socket) => {
     //socket.setEncoding('utf-8');
+    console.log("socket elnfth = " + socket.writableLength);
     let a = 0;
     // client로부터 오는 data
     socket.on('data', (data: Buffer) => {   

@@ -23,6 +23,7 @@ var net = __importStar(require("net"));
 var ObjectManager_1 = require("./ObjectManager");
 var server = net.createServer(function (socket) {
     //socket.setEncoding('utf-8');
+    console.log("socket elnfth = " + socket.writableLength);
     var a = 0;
     // client로부터 오는 data
     socket.on('data', function (data) {
