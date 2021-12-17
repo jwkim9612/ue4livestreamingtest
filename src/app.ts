@@ -13,13 +13,14 @@ declare module "net" {
 const server = net.createServer((socket : net.Socket) => {
     //socket.setEncoding('utf-8');
     let a = 0;
+
     // client로부터 오는 data
     socket.on('data', (data: Buffer) => {   
         console.log(data.length);
         a += data.length;
 
         console.log("data!! " + a);
-    console.log("socket elnfth = " + socket.writableLength);
+    console.log("socket elnfth = " + socket.bufferSize);
         //let stringData = data.toString();
         //console.log("string : " + stringData);
         //let splitedData =  stringData.split(';');

@@ -29,7 +29,7 @@ var server = net.createServer(function (socket) {
         console.log(data.length);
         a += data.length;
         console.log("data!! " + a);
-        console.log("socket elnfth = " + socket.writableLength);
+        console.log("socket elnfth = " + socket.bufferSize);
         //let stringData = data.toString();
         //console.log("string : " + stringData);
         //let splitedData =  stringData.split(';');
