@@ -16,7 +16,9 @@ const server = net.createServer((socket : net.Socket) => {
     // client로부터 오는 data
     socket.on('data', (data: Buffer) => {   
         let stringData = data.toString();
+        console.log("string : " + stringData);
         let splitedData =  stringData.split(';');
+        console.log("splited : " + splitedData);
         if (splitedData.length > 1)
         {
             splitedData.forEach(e =>{
