@@ -26,9 +26,9 @@ var server = net.createServer(function (socket) {
     var a = 0;
     // client로부터 오는 data
     socket.on('data', function (data) {
-        console.log("data!! " + a);
-        ++a;
         console.log(data.length);
+        a += data.length;
+        console.log("data!! " + a);
         //let stringData = data.toString();
         //console.log("string : " + stringData);
         //let splitedData =  stringData.split(';');
