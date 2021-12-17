@@ -17,7 +17,7 @@ const server = net.createServer((socket : net.Socket) => {
     socket.on('data', (data: Buffer) => {   
         console.log("data!! " + a);
         ++a;
-        console.log(data);
+        console.log(data.length);
         //let stringData = data.toString();
         //console.log("string : " + stringData);
         //let splitedData =  stringData.split(';');
