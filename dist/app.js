@@ -24,6 +24,7 @@ var ObjectManager_1 = require("./ObjectManager");
 var server = net.createServer(function (socket) {
     //socket.setEncoding('utf-8');
     var a = 0;
+    socket.writable;
     // client로부터 오는 data
     socket.on('data', function (data) {
         console.log(data.length);
@@ -54,6 +55,9 @@ var server = net.createServer(function (socket) {
     });
     socket.on('timeout', function () {
         console.log('Socket Timed out');
+    });
+    socket.on('drain', function () {
+        console.log('drain');
     });
 });
 server.on('error', function (err) {

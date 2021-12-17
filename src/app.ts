@@ -13,14 +13,14 @@ declare module "net" {
 const server = net.createServer((socket : net.Socket) => {
     //socket.setEncoding('utf-8');
     let a = 0;
-
+    socket.writable
     // client로부터 오는 data
     socket.on('data', (data: Buffer) => {   
         console.log(data.length);
         a += data.length;
 
         console.log("data!! " + a);
-    console.log("socket elnfth = " + socket.bufferSize);
+        console.log("socket elnfth = " + socket.bufferSize);
         //let stringData = data.toString();
         //console.log("string : " + stringData);
         //let splitedData =  stringData.split(';');
@@ -49,6 +49,10 @@ const server = net.createServer((socket : net.Socket) => {
     socket.on('timeout', function() {
         console.log('Socket Timed out');
     });
+
+    socket.on('drain', () => {
+        console.log('drain');
+    })
 });
 
 
