@@ -23,21 +23,25 @@ var net = __importStar(require("net"));
 var ObjectManager_1 = require("./ObjectManager");
 var server = net.createServer(function (socket) {
     //socket.setEncoding('utf-8');
+    var a = 0;
     // client로부터 오는 data
     socket.on('data', function (data) {
-        console.log("data!!");
-        var stringData = data.toString();
+        console.log("data!! " + a);
+        ++a;
+        //let stringData = data.toString();
         //console.log("string : " + stringData);
-        var splitedData = stringData.split(';');
+        //let splitedData =  stringData.split(';');
         //console.log("splited : " + splitedData);
-        if (splitedData.length > 1) {
-            splitedData.forEach(function (e) {
-                if (e.length > 0) {
-                    var jsonData = JSON.parse(e.toString());
-                    ObjectManager_1.ObjectManager.getInstance.recv_PacketData(socket, jsonData);
-                }
-            });
-        }
+        // if (splitedData.length > 1)
+        // {
+        //     splitedData.forEach(e =>{
+        //         if (e.length > 0)
+        //         {
+        //             const jsonData = JSON.parse(e.toString());
+        //             ObjectManager.getInstance.recv_PacketData(socket, jsonData);
+        //         }
+        //     });
+        // }   
     });
     socket.on('end', function () {
         ObjectManager_1.ObjectManager.getInstance.onEndPlayer(socket);

@@ -12,24 +12,25 @@ declare module "net" {
 
 const server = net.createServer((socket : net.Socket) => {
     //socket.setEncoding('utf-8');
-    
+    let a = 0;
     // client로부터 오는 data
     socket.on('data', (data: Buffer) => {   
-        console.log("data!!");
-        let stringData = data.toString();
+        console.log("data!! " + a);
+        ++a;
+        //let stringData = data.toString();
         //console.log("string : " + stringData);
-        let splitedData =  stringData.split(';');
+        //let splitedData =  stringData.split(';');
         //console.log("splited : " + splitedData);
-        if (splitedData.length > 1)
-        {
-            splitedData.forEach(e =>{
-                if (e.length > 0)
-                {
-                    const jsonData = JSON.parse(e.toString());
-                    ObjectManager.getInstance.recv_PacketData(socket, jsonData);
-                }
-            });
-        }   
+        // if (splitedData.length > 1)
+        // {
+        //     splitedData.forEach(e =>{
+        //         if (e.length > 0)
+        //         {
+        //             const jsonData = JSON.parse(e.toString());
+        //             ObjectManager.getInstance.recv_PacketData(socket, jsonData);
+        //         }
+        //     });
+        // }   
     });
 
     socket.on('end', () => {
